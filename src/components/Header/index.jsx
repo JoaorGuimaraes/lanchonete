@@ -1,11 +1,23 @@
-import { Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import canteenLogoImg from "../../assets/The-Canteen-logo.png";
-import "./style.css";
 export function Header() {
     return (
-        <div className="container">
-            <img src={canteenLogoImg} alt="Canteen Logo" />
-            <Typography variant="h5" align="right">Canteen menager</Typography>
-        </div>
+        <Grid container direction="row"
+            justifyContent="center"
+            alignItems="center"
+            p={"2rem"}
+            borderBottom={"1px solid black"}
+            height={"7.1rem"}
+        >
+
+            <Grid item xs={6} sm={6} md={6} sx={{height:"5rem"}}>
+                <img src={canteenLogoImg} alt="Canteen Logo" style={{height:"5rem"}}/>
+            </Grid>
+
+            <Grid item xs={6} sm={6} md={6}>
+                <Typography variant="h5" align="right">Canteen menager</Typography>
+            </Grid>
+
+        </Grid>
     );
 }
