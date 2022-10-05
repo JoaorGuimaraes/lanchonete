@@ -1,0 +1,10 @@
+{
+  "Produto": [
+    {
+      "id": 1,
+      "food": "COXINHA",
+      "category": "SALGADO FRITO",
+      "price": 5
+    }
+  ]
+}
