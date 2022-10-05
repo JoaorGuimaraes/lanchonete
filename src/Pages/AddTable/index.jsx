@@ -12,25 +12,19 @@ import { useHistory } from "react-router-dom";
 import { api } from "../../Services/api";
 import { useParseParams } from "../../Utils/useParseParams";
 
-export function AddFood() {
+export function AddTable() {
   const { register, handleSubmit, setValue, getValues} = useForm();
   const [isLoading, setIsLoading] = useState(true);
   const history = useHistory();
   const id = useParseParams().get("id");
 
-  const options = [
-    { value: "roast", label: "roast" },
-    { value: "fried", label: "fried" },
-    { value: "refreshment", label: "refreshment" },
-  ];
-
   useEffect(() => {
     if(id){
-      api.get(`/product/${id}`)
+      api.get(`/table/${id}`)
       .then((response) => {
-        setValue("food", response.data.food);
-        setValue("price", response.data.price);
-        setValue("category", response.data.category);
+        setValue("table", response.data.table);
+        setValue("client", response.data.client);
+        setValue("peoples", response.data.peoples);
       })
       .catch(() => alert("A requisição falhou"))
       .finally(() => setIsLoading(false));
@@ -44,7 +38,7 @@ export function AddFood() {
 
     if (id) {
       api
-        .put(`/produto/${id}`, data)
+        .put(`/table/${id}`, data)
         .then((response) => {
           alert("Sucess");
           history.push("/");
@@ -52,7 +46,7 @@ export function AddFood() {
         .catch((error) => alert(error.message));
     } else {
       api
-        .post("/product", data)
+        .post("/table", data)
         .then((response) => {
           alert("Sucess");
           history.push("/");
@@ -68,7 +62,7 @@ export function AddFood() {
   return (
     <Card>
       <CardActions>
-        <h1>Menu management panel</h1>
+        <h1>Table management panel</h1>
       </CardActions>
       <Box
         component="form"
@@ -81,36 +75,29 @@ export function AddFood() {
       >
         <div style={{ display: "flex", alignItems: "center" }}>
           <TextField
-            {...register("food")}
+            {...register("table")}
             id="outlined-textarea"
             InputLabelProps={id && { shrink: true }}
-            label="Name"
-            placeholder="Name"
+            label="table"
+            placeholder="table"
             multiline
             required
           />
           <TextField
-            select
-            id="category"
-            InputLabelProps={id && { shrink: true }}
-            label="Category"
-            placeholder="Category"
-            required
-           {...register("category")}
-            defaultValue={getValues("category")}
-          >
-            {options.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </TextField>
-          <TextField
-            {...register("price")}
+            {...register("client")}
             id="outlined-textarea"
             InputLabelProps={id && { shrink: true }}
-            label="Value"
-            placeholder="Value"
+            label="client"
+            placeholder="client"
+            multiline
+            required
+          />
+          <TextField
+            {...register("peoples")}
+            id="outlined-textarea"
+            InputLabelProps={id && { shrink: true }}
+            label="peoples"
+            placeholder="peoples"
             multiline
             required
           />

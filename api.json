@@ -1,10 +1,24 @@
 {
-  "Produto": [
+  "product": [
     {
-      "id": 1,
-      "food": "COXINHA",
-      "category": "SALGADO FRITO",
-      "price": 5
+      "food": "Pizza",
+      "price": "13.39",
+      "category": "roast",
+      "id": 1
+    },
+    {
+      "food": "Bread",
+      "category": "roast",
+      "price": "123",
+      "id": 2
+    }
+  ],
+  "table": [
+    {
+      "table": "4",
+      "client": "João",
+      "peoples": "8",
+      "id": 2
     }
   ]
 }

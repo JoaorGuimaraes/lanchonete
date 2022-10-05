@@ -5,14 +5,14 @@ import { useHistory } from "react-router-dom";
 import { api } from "../../Services/api";
 import { FiTrash2, FiEdit } from "react-icons/fi";
 
-export function Dashboard() {
+export function Table() {
     
   const [refresh, setRefresh] = useState(true);
   const [rows, setRows] = useState([]);
   const columns = [
-    { field: "food", headerName: "Food", width: 150 },
-    { field: "category", headerName: "Category", width: 150 },
-    { field: "price", headerName: "Price", width: 150 },
+    { field: "table", headerName: "table", width: 150 },
+    { field: "peoples", headerName: "peoples", width: 150 },
+    { field: "client", headerName: "client", width: 150 },
     {
       field: "actions",
       type: "actions",
@@ -23,20 +23,20 @@ export function Dashboard() {
           showInMenu
           label="Delete"
           onClick={() => {
-            api.delete(`/product/${params.id}`);
+            api.delete(`/table/${params.id}`);
             setRefresh(true);
           }}
         />,
-        <GridActionsCellItem icon={<FiEdit />} label="Edit" onClick={() => history.push(`/add-food?id=${params.id}`)}/>,
+        <GridActionsCellItem icon={<FiEdit />} label="Edit" onClick={() => history.push(`/add-table?id=${params.id}`)}/>,
       ],
     },
   ];
   const history = useHistory();
 
-  useEffect(() => {
+  useEffect(() => {  
     if (refresh) {
         api
-          .get("/product")
+          .get("/table")
           .then((response) => setRows(response.data))
           .catch(() => alert("A requisição falhou"))
           .finally(() => setRefresh(false));
@@ -46,15 +46,15 @@ export function Dashboard() {
   return (
     <Card sx={{ width: "100%" }}>
       <CardHeader
-        title="Menu"
+        title="Tables"
         subheader={
           <Button
             color="primary"
             variant="contained"
             sx={{ mr: 1 }}
-            onClick={() => history.push("/add-food")}
+            onClick={() => history.push("/add-table")}
           >
-            add food
+            add table
           </Button>
         }
       />

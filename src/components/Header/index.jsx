@@ -1,4 +1,5 @@
 import { Grid, Typography } from "@mui/material";
+import { Link, useHistory } from "react-router-dom";
 import canteenLogoImg from "../../assets/The-Canteen-logo.png";
 export function Header() {
     return (
@@ -11,7 +12,7 @@ export function Header() {
         >
 
             <Grid item xs={6} sm={6} md={6} sx={{height:"5rem"}}>
-                <img src={canteenLogoImg} alt="Canteen Logo" style={{height:"5rem"}}/>
+                <Link to="/"><img src={canteenLogoImg} alt="Canteen Logo" style={{height:"5rem"}}/></Link>
             </Grid>
 
             <Grid item xs={6} sm={6} md={6}>
