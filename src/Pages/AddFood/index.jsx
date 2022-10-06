@@ -41,16 +41,16 @@ export function AddFood() {
   }, []);
 
   function postForm(data) {
-
     if (id) {
       api
-        .put(`/produto/${id}`, data)
+        .put(`/product/${id}`, data)
         .then((response) => {
           alert("Sucess");
           history.push("/");
         })
         .catch((error) => alert(error.message));
     } else {
+      data.price = Number(data.price);
       api
         .post("/product", data)
         .then((response) => {

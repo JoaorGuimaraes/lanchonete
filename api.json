@@ -2,23 +2,56 @@
   "product": [
     {
       "food": "Pizza",
-      "price": "13.39",
+      "price": "14",
       "category": "roast",
       "id": 1
     },
     {
-      "food": "Bread",
-      "category": "roast",
-      "price": "123",
-      "id": 2
+      "food": "chicken",
+      "category": "fried",
+      "price": 7,
+      "id": 3
     }
   ],
   "table": [
     {
-      "table": "4",
+      "table": "1",
       "client": "João",
       "peoples": "8",
-      "id": 2
+      "id": 2,
+      "check": [
+        {
+          "id": 1,
+          "quantity": 2
+        },
+        {
+          "id": 3,
+          "quantity": 4
+        }
+      ]
+    },
+    {
+      "table": "0",
+      "client": "Lucas",
+      "peoples": "0",
+      "check": [],
+      "id": 4
+    },
+    {
+      "table": "4",
+      "client": "Thiago",
+      "peoples": "2",
+      "check": [
+        {
+          "id": 1,
+          "quantity": 7
+        },
+        {
+          "id": 1,
+          "quantity": 2
+        }
+      ],
+      "id": 5
     }
   ]
 }

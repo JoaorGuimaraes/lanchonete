@@ -1,5 +1,5 @@
 import { Grid, Typography } from "@mui/material";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import canteenLogoImg from "../../assets/The-Canteen-logo.png";
 export function Header() {
     return (
